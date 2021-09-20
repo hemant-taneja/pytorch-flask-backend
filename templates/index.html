@@ -1,0 +1,31 @@
+<!DOCTYPE >
+<html>
+  <head>
+    <title>Preview the Upload File before upload</title>
+  </head>
+  <body style="text-align: center;background:pink" >
+    <marquee><h1>Cassava Leaf Disease Predictor</h1></marquee>
+    <form method="POST" action="/predict" enctype="multipart/form-data">
+      <input id="file" type="file" name="leaf" onchange="previewFile()"/>
+      <button id="btnSubmit">Upload</button>
+    </form>
+    
+   
+
+    {% if flag == False %}
+        <img id="previewImg" height="400px" src="/image">
+        <h1><marquee>Prediction: {{predict}}</marquee></h1>
+        {% else %}
+        <img id="previewImg" height="400px" src="https://dredgit.com/wp-content/uploads/2013/11/dummy-image-square.jpg">
+        {% endif %}
+  </body>
+  <script>
+    const imgEl = document.getElementById("previewImg");
+    const inputEl = document.getElementById("file")
+    console.log(imgEl);
+    function previewFile() {
+        console.log("CHANGED", inputEl.files)
+        imgEl.src = URL.createObjectURL(inputEl.files[0]);
+    }
+  </script>
+</html>

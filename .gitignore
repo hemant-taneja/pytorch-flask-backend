@@ -1,2 +1,4 @@
 pytorch-server
 __pycache__
+testimages
+resnext50_32x4d_fold0_epoch9_best.pth
